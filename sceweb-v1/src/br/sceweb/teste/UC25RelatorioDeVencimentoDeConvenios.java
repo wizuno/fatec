@@ -16,12 +16,14 @@ public class UC25RelatorioDeVencimentoDeConvenios {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		convenio = new Convenio();
+		convenio.setDataInicio("01/01/2015");
+		convenio.setDataInicio("30/06/2015");
 	}
 	@Test
 	public void test() {
-		DateTime di = new DateTime(2015, 1, 1, 0, 0);
-		DateTime df = new DateTime(2015, 6, 30, 0, 0);
-		assertEquals(180, convenio.periodoDeVigencia(di, df));
+		DateTime dataTermino = new DateTime(2015,6,30,0,0);
+		DateTime dataHoje = new DateTime(2015, 3, 31, 0, 0);
+		assertEquals(91, convenio.periodoDeVigencia(dataHoje, dataTermino));
 	}
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
