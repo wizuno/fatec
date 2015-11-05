@@ -39,6 +39,21 @@ public class Convenio {
 
 		return dataInicio.toString("dd/MM/yyyy");
 	}
+	/**
+	 * valida a data de termino
+	 * 
+	 * @param dataTermino - data do terminio da vigencia de um convenio dd/mm/aaaa
+	 * @throws IllegalArgumentException
+	 */
+	public void setDataTermino(String dataTermino) throws IllegalArgumentException {
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>data inicio = " + dataTermino);
+		if (validaData(dataTermino)) {
+			this.dataTermino = new DateTime(Integer.parseInt(dataTermino.substring(6, 10)),
+					Integer.parseInt(dataTermino.substring(3, 5)), Integer.parseInt(dataTermino.substring(0, 2)), 0, 0);
+		} else {
+			throw new IllegalArgumentException("data invalida");
+		}
+	}
 
 	public String getDataTermino() {
 

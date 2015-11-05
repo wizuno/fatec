@@ -17,7 +17,7 @@ public class UC25RelatorioDeVencimentoDeConvenios {
 	public static void setUpBeforeClass() throws Exception {
 		convenio = new Convenio();
 		convenio.setDataInicio("01/01/2015");
-		convenio.setDataInicio("30/06/2015");
+		convenio.setDataTermino("30/06/2015");
 	}
 	@Test
 	public void test() {
