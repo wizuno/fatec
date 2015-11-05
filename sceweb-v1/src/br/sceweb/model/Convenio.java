@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+import org.joda.time.Days;
 
 public class Convenio {
 	private String cnpj;
@@ -51,7 +52,10 @@ public class Convenio {
 			logger.error("Erro na validacao de data - " + ex.getMessage());			return false;
 		}  
 	}
-	
+	public int periodoDeVigencia(DateTime di, DateTime df){
+		Days d = Days.daysBetween(di, df);
+		return d.getDays(); 
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
