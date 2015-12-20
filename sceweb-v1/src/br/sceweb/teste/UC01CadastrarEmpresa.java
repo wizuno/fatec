@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import br.sceweb.model.Empresa;
 import br.sceweb.model.EmpresaDAO;
+import br.sceweb.model.Fachada;
 
 public class UC01CadastrarEmpresa {
     static EmpresaDAO empresaDAO;
@@ -36,7 +37,7 @@ public class UC01CadastrarEmpresa {
 		
 		empresaDAO.exclui("89424232000180");
 		assertEquals(1,empresaDAO.adiciona(empresa));
-		empresaDAO.exclui("89424232000180");
+		//empresaDAO.exclui("89424232000180");
 	}
 	/**
 	 * obj - verificar o comportamento do sistema no cadastro com cnpj ja cadastrado
@@ -71,6 +72,13 @@ public class UC01CadastrarEmpresa {
 		} catch (Exception e) {
 			assertEquals("nome da empresa inválido!",e.getMessage());
 		}
+	}
+	
+	@Test
+	public void CT05UC01Cadastra_empresa_com_dados_validos(){
+		Fachada fachada = new Fachada();
+		assertEquals("cadastro realizado com sucesso",fachada.incluirEmpresa("empresa x", "89424232000180", "empresa x", "rua taquari", "1234", "jose", "1234", "contabilidade", "jose@email"));
+		
 	}
 	/**
 	 * obj - exclui o cnpj ao finalizar o teste
