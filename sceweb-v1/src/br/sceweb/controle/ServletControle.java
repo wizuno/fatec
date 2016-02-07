@@ -52,7 +52,6 @@ public class ServletControle extends HttpServlet {
 			throws ServletException, IOException {
 		String parametro = request.getParameter("acao");
 		logger.info("acao do servletcontrole = " + parametro);
-		String nomeDaClasse = "br.sceweb.controle." + parametro;
 		String url = "";
 		String resultado = "";
 		request.setAttribute("erro", null);

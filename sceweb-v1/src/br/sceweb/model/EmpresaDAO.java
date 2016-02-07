@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.sceweb.servico.FabricaDeConexoes;
+
 public class EmpresaDAO {
     /*
      * inclui uma empresa no db

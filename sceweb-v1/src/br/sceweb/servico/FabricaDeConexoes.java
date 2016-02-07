@@ -1,4 +1,4 @@
-package br.sceweb.model;
+package br.sceweb.servico;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
