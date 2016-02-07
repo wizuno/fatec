@@ -32,6 +32,14 @@ public class EmpresaDAO {
 		}
 		return codigoRetorno;
 	}
+	/**
+	 * nao implementado
+	 * @param responsavel
+	 * @return
+	 */
+	public int adicionaResponsavel(Responsavel responsavel){
+		return 1;
+	}
 	/*
      * exclui uma empresa no db
      * entrada string contendo o cnpj

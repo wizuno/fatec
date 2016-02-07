@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import br.sceweb.model.Empresa;
 import br.sceweb.model.EmpresaDAO;
-import br.sceweb.model.Fachada;
+
 
 public class UC01CadastrarEmpresa {
     static EmpresaDAO empresaDAO;
@@ -76,8 +76,7 @@ public class UC01CadastrarEmpresa {
 	
 	@Test
 	public void CT05UC01Cadastra_empresa_com_dados_validos(){
-		Fachada fachada = new Fachada();
-		assertEquals("cadastro realizado com sucesso",fachada.incluirEmpresa("empresa x", "89424232000180", "empresa x", "rua taquari", "1234", "jose", "1234", "contabilidade", "jose@email"));
+		
 		
 	}
 	/**
