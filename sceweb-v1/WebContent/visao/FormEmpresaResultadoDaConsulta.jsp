@@ -7,11 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" language="javascript">
 	
-	function consultar() {
-		document.formEmpresaConsultar.acao.value = "AlterarEmpresa";
-		document.formEmpresaConsultar.submit();
-	}
-	
 	function voltar() {
 		history.go(-1)
 		
@@ -23,7 +18,7 @@
 <jsp:include page="Cabecalho.jsp" />
 	<div id="principal">
 		<div id="titulo">
-			<h3>Controle de Empresas - consulta</h3>
+			<h3>Mantem Empresa - consulta</h3>
 		</div>
 		<hr>
 		<div id="formulario2">
@@ -81,7 +76,7 @@
 					
 					<tr>
 						<td colspan=2 id="botoes" align="center">
-						<input id="botao" type=button name=btnIncluir onclick=incluir() value=Alterar>
+						
 						<input id="botao" type=reset name=btnLimpar onclick=limpar() value=Limpar>
 					    <input id="botao" type=button name=btnVoltar onclick=voltar() value=Voltar>
 					    </td>

@@ -9,7 +9,7 @@
                 font: normal 12px courier !important;
             }
 </style>
-<title>Incluir Empresa</title>
+<title>Manter Empresa</title>
 <link rel="stylesheet" type="text/css" href="/sceweb-v1/CSS/formato.css">
 <script type="text/javascript" language="javascript">
 	
@@ -30,7 +30,7 @@
 	<jsp:include page="Cabecalho.jsp" />
 	<div id="principal">
 		<div id="titulo">
-			<h3>Controle de Empresas - inclusão</h3>
+			<h3>Mantem Empresas</h3>
 		</div>
 		<hr>
 		<div id="formulario2">
