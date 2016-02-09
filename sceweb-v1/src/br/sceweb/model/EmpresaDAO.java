@@ -89,7 +89,7 @@ public class EmpresaDAO {
      * entrada n/a
      * saida - um arraylist com todas as empresas listadas no db
      */
-	public Empresa consultaEmpresas(String cnpj) {
+	public Empresa consultaEmpresa(String cnpj) {
 		Empresa empresa = null;
 		PreparedStatement ps;
 		try (Connection conn = new FabricaDeConexoes().getConnection()) {

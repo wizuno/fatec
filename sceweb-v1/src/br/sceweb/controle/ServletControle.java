@@ -56,7 +56,7 @@ public class ServletControle extends HttpServlet {
 		String resultado = "";
 		request.setAttribute("erro", null);
 		if (parametro.equals("IncluirEmpresa")) {
-			url = "/visao/FormEmpresaIncluir.jsp";
+			url = "/visao/FormEmpresa.jsp";
 			try {
 				resultado = cadastrarEmpresa(request.getParameter("txtCNPJ"), request.getParameter("txtNomeDaEmpresa"),
 						request.getParameter("txtNomeFantasia"), request.getParameter("txtEndereco"),
@@ -68,11 +68,43 @@ public class ServletControle extends HttpServlet {
 				request.setAttribute("msg", resultado);
 				request.getRequestDispatcher(url).forward(request, response);
 				logger.info("erro  = " + e.getMessage());
-				
+
 			}
 		}
-		
-		
+		if (parametro.equals("ConsultarEmpresa")) {
+			url = "/visao/FormEmpresa.jsp";
+			Empresa empresa = new Empresa();
+			String cnpj = request.getParameter("txtCNPJ");
+			logger.info("consulta empresa  = " + cnpj);
+			try {
+				if (!cnpj.isEmpty()) {
+					empresa = consulta(cnpj);
+					if (empresa != null){
+						logger.info("consulta empresa nome da empresa  = " + empresa.getNomeDaEmpresa());
+						request.setAttribute("nomeDaEmpresa", empresa.getNomeDaEmpresa());
+					    request.setAttribute("cnpj", empresa.getCnpj());
+					    request.setAttribute("nomeFantasia", empresa.getNomeFantasia());
+					    request.setAttribute("endereco", empresa.getEndereco());
+					    request.setAttribute("telefone", empresa.getTelefone());
+					    request.setAttribute("responsavel", empresa.getResponsavel());
+					    request.setAttribute("telefoneResponsavel", empresa.getTelefoneResponsavel());
+					    request.setAttribute("setor", empresa.getSetor());
+					    request.setAttribute("email", empresa.getEmail());
+					    request.setAttribute("msg", "");
+						url = "/visao/FormEmpresaResultadoDaConsulta.jsp";
+					} else {
+						request.setAttribute("msg", "cnpj invalido");
+					}
+				} else {
+					request.setAttribute("msg", "cnpj invalido");
+				}
+			} catch (Exception e) {
+				logger.info(e.getMessage() + e.getCause());
+			}
+			request.getRequestDispatcher(url).forward(request, response);
+			
+		}
+
 	}
 
 	public String cadastrarEmpresa(String cnpj, String nomeDaEmpresa, String nomeFantasia, String endereco,
@@ -96,8 +128,15 @@ public class ServletControle extends HttpServlet {
 		return msg;
 	}
 
+	public Empresa consulta(String cnpj) {
+		logger.info("consulta empresa 2 = " + cnpj);
+		EmpresaDAO empresaDAO = new EmpresaDAO();
+		return empresaDAO.consultaEmpresa(cnpj);
+	}
+
 	public String excluirEmpresa(String cnpj) {
 		String msg = "";
+		EmpresaDAO empresaDAO = new EmpresaDAO();
 		try {
 			empresaDAO.exclui(cnpj);
 			msg = "excluido com sucesso";

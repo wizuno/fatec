@@ -30,8 +30,16 @@ public class UC02ConsultarEmpresa {
 	@Test
 	public void CT01UC02FBCosultarEmpresa_com_sucesso() {
 		empresaDAO.adiciona(empresa);
-		assertTrue(empresa.equals(empresaDAO.consultaEmpresas("89424232000180")));
+		assertTrue(empresa.equals(empresaDAO.consultaEmpresa("89424232000180")));
 		empresaDAO.exclui("89424232000180");
+	}
+	/**
+	 * obj - verificar o comportamento do sistema na consulta de empresa com sucesso 
+	 */
+	@Test
+	public void CT02UC02A1CosultarEmpresa_cnpj_invalido() {
+		assertNull(empresaDAO.consultaEmpresa("11111"));
+		
 	}
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
